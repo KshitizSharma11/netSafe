@@ -7,5 +7,12 @@ export const getAdrr=async ()=>{
 
 export const getDetails =async (adrr)=>{
   const result = await axios.get(`http://ip-api.com/json/${adrr}`);
-  return result.data;
+  const obj = {
+    
+    
+    region: result.data.regionName,
+    country: result.data.country,
+    
+  };
+  return obj;
 }

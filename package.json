@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.11.0",
-    "fastify": "^5.5.0"
+    "fastify": "^5.5.0",
+    "xss": "^1.0.15"
   }
 }
