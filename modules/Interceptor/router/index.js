@@ -1,4 +1,5 @@
-import fastify from "fastify";
-import { getIPInfo } from "../controller";
-const app= fastify();
-app.get("/", getIPInfo);
+import InterceptCont from "../controller/index.js";
+
+export default async function Interceptor(fastify, opts) {
+  fastify.get("/", InterceptCont.getIPInfo);
+}

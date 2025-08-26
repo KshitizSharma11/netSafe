@@ -1,8 +1,8 @@
-import { getAdrr, getDetails } from "../../../utils/getIP";
+import { getAdrr, getDetails } from "../../../utils/getIP.js";
 
-export const getIPInfo = async (req, reply) => {
+const getIPInfo = async (req, reply) => {
 
-  const ip = req.ip;
+  let ip = req.ip;
   if(ip === "::1" || ip =="127.0.0.1" )
   {
     ip = await getAdrr();
@@ -10,3 +10,7 @@ export const getIPInfo = async (req, reply) => {
   const details = await getDetails(ip);
   reply.send(details);
 };
+const InterceptCont={
+    getIPInfo
+}
+export default InterceptCont;
