@@ -10,9 +10,9 @@ export const getDetails =async (adrr)=>{
   const obj = {
     
     
-    region: result.data.regionName,
-    country: result.data.country,
     
+    country: result.data.country.toUpperCase(),
+
   };
   return obj;
 }
