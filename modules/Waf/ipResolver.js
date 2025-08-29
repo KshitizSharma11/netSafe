@@ -1,5 +1,5 @@
 import { getAdrr, getDetails } from "../../utils/getIP.js";
-import {LRUCache} from "lru-cache";
+import { LRUCache } from "lru-cache";
 
 const cache = new LRUCache({
   max: 10000,
@@ -17,10 +17,13 @@ const getIPInfo = async (req) => {
   }
 
   if (cache.has(ip)) {
-    return cache.get(ip);
+    const cached = cache.get(ip);
+    console.log(`[CACHE HIT] IP: ${ip}, Country: ${cached?.country}`);
+    return cached;
   }
 
   const details = await getDetails(ip);
+  console.log(`[RESOLVED] IP: ${ip}, Country: ${details?.country || "UNKNOWN"}`);
   cache.set(ip, details);
   return details;
 };

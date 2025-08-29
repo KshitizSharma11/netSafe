@@ -23,6 +23,7 @@ function readFile() {
 
 readFile();
 
+
 function isBlocked(country) {
   return blocked_countries.has(country);
 }
